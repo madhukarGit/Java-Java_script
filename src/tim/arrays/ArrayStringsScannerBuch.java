@@ -16,6 +16,7 @@ public class ArrayStringsScannerBuch {
             }
         };
         Arrays.sort(values,sortStrings);
+        //sortStringsBubbleAlgp(values);
         System.out.println("......sorted.......");
         Stream.of(values).forEach(System.out::println);
         int resultIndex = binarySearch(values,"John Lemon");
@@ -24,10 +25,10 @@ public class ArrayStringsScannerBuch {
     }
 
     private static String[] scanStrings(int number){
-        System.out.println("Enter the String arrays length to insert "+number);
+        System.out.println("Enter the String arrays length to insert ");
         String[] values = new String[5];
         for(int i=0;i<number;i++){
-            values[i] = scanner.nextLine();
+            values[i] = scanner.next();
         }
         return values;
     }
@@ -48,5 +49,26 @@ public class ArrayStringsScannerBuch {
             }
         }
         return -1;
+    }
+
+    /*
+    * sort Array using bubble sort with flag and temp solution
+    *
+     */
+    private static void sortStringsBubbleAlgp(String[] vals){
+        boolean flag = true;
+        String temp;
+        while(flag){
+            flag = false;
+            for (int i = 0 ; i < vals.length-1 ; i++){
+                int compare = vals[i].compareTo(vals[i+1]);
+                if(compare > 0){
+                    temp = vals[i];
+                    vals[i] = vals[i+1];
+                    vals[i+1] = temp;
+                }
+                flag = true;
+            }
+        }
     }
 }
